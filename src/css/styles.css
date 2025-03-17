@@ -111,3 +111,66 @@ button[data-start]:hover {
   font-weight: 400;
   line-height: 1.5;
 }
+
+/* ---------- SNACKBAR ---------- */
+.form > label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.64px;
+}
+
+.form > label input {
+  border-radius: 4px;
+  border: 1px solid #808080;
+  width: 360px;
+  height: 40px;
+}
+
+.form > label input:hover {
+  border: 1px solid #000;
+}
+
+fieldset {
+  display: flex;
+  width: 360px;
+  padding: 24px 48px 8px 48px;
+  gap: 48px;
+  stroke-width: 1px #808080;
+  border-radius: 4px;
+  margin: 30px 0 24px;
+}
+
+fieldset label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+fieldset label input {
+  width: 24px;
+  height: 24px;
+  margin: 0;
+}
+
+.form button {
+  border-radius: 8px;
+  background-color: #4e75ff;
+  border: none;
+  width: 360px;
+  padding: 8px 16px;
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+
+.form button:hover {
+  background-color: #6c8cff;
+}
