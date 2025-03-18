@@ -14,7 +14,7 @@ function handleSubmit(event) {
   const delay = +input.value;
   const isSuccess = fulfBtn.checked ? true : rejBtn.checked ? false : null;
 
-  if (!delay || !isSuccess) {
+  if (!delay || !(fulfBtn.checked || rejBtn.checked)) {
     iziToast.warning({
       title: 'Caution',
       message: 'You forgot important data',
@@ -23,17 +23,27 @@ function handleSubmit(event) {
   }
 
   createPromise(delay, isSuccess)
-    .then(value => iziToast.success({ title: 'Success', message: value }))
-    .catch(error => iziToast.error({ title: 'Error', message: error }));
+    .then(value =>
+      iziToast.success({
+        title: 'Success',
+        message: `✅ Fulfilled promise in ${value}ms`,
+      })
+    )
+    .catch(value =>
+      iziToast.error({
+        title: 'Error',
+        message: `❌ Rejected promise in ${value}ms`,
+      })
+    );
 }
 
 function createPromise(delay, isSuccess) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (isSuccess) {
-        resolve(`✅ Fulfilled promise in ${delay}ms`);
+        resolve(delay);
       } else {
-        reject(`❌ Rejected promise in ${delay}ms`);
+        reject(delay);
       }
     }, delay);
   });
